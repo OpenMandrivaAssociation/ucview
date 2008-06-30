@@ -8,11 +8,9 @@ Url:		http://www.unicap-imaging.org/ucview.htm
 License:	GPL
 Group:		Video
 BuildRequires:	libunicap-devel >= 0.2.23
-BuildRequires:	libunicap2 >= 0.2.23
 BuildRequires:	libGConf2-devel >= 2.22.0
 BuildRequires:	libglade2.0_0-devel >= 2.6.2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-#Conflicts:	?
 
 %description
  UCView is a video capture and display program based on the unicap video imaging library.
