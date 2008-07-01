@@ -10,6 +10,9 @@ Group:		Video
 BuildRequires:	libunicap-devel >= 0.2.23
 BuildRequires:	libGConf2-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 2.6.2
+BuildRequires:	libtheora-devel >= 1.0
+BuildRequires:	libvorbis-devel >= 1.2.0
+BuildRequires:	gtk+2 >= 2.12.10
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
