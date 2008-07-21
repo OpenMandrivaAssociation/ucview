@@ -1,6 +1,6 @@
 Name:		ucview
 Version:	0.20.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	A video capture and display program
 Source0:	http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
 
@@ -14,7 +14,8 @@ BuildRequires:	gtk+2 >= 2.12.10
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
- UCView is a video capture and display program based on the unicap video imaging library.
+UCView is a video capture and display program based on the unicap video imaging
+library.
 
 %prep
 %setup -q
