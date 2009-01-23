@@ -1,6 +1,6 @@
 Name:		ucview
-Version:	0.20.1
-Release:	%mkrel 2
+Version:	0.22
+Release:	%mkrel 1
 Summary:	A video capture and display program
 Source0:	http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
 
@@ -42,3 +42,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/ucview.glade
 %{_includedir}/%{name}/*
 %{_bindir}/ucview
+%{_libdir}/ucview/plugins/libhistogram.*
+%{_datadir}/dbus-1/services/org.unicap-imaging.UCView.service
+%{_mandir}/man1/ucview.1.lzma
