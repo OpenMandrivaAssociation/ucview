@@ -7,7 +7,7 @@ Source0:	http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
 Url:		http://www.unicap-imaging.org/ucview.htm
 License:	GPL
 Group:		Video
-BuildRequires:  dbus-devel
+BuildRequires:  dbus-glib-devel >= 0.73
 BuildRequires:	libunicap-devel >= 0.2.23
 BuildRequires:	libGConf2-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 2.6.2
