@@ -1,6 +1,6 @@
 Name:		ucview
 Version:	0.22
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	A video capture and display program
 Source0:	http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
 
