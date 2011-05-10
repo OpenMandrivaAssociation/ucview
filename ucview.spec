@@ -11,7 +11,7 @@ BuildRequires:	libunicapgtk-devel >= 0.2.23
 BuildRequires:	libGConf2-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 2.6.2
 BuildRequires:	gtk+2 >= 2.12.10
-BuildRequires:	intltool
+BuildRequires:	intltool GConf2
 Requires(preun): GConf2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -23,13 +23,15 @@ library.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --disable-schemas-install
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 %find_lang %{name}
+
+rm -fr %buildroot%_includedir %buildroot%_libdir/pkgconfig
 
 %preun
 %preun_uninstall_gconf_schemas ucview
@@ -45,8 +47,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/icons/*
 %{_datadir}/%{name}/logo/ucview-logo.png
 %{_datadir}/%{name}/ucview.glade
-%{_includedir}/%{name}/*
 %{_bindir}/ucview
-%{_libdir}/ucview/plugins/libhistogram.*
-%{_datadir}/dbus-1/services/org.unicap-imaging.UCView.service
 %{_mandir}/man1/ucview.1.*
