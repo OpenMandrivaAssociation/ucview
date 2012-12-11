@@ -1,19 +1,20 @@
 Name:		ucview
 Version:	0.33
-Release:	%mkrel 1
+Release:	2
 Summary:	A video capture and display program
 Source0:	http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
+Source1:	%{name}.desktop
 Url:		http://www.unicap-imaging.org/ucview.htm
-License:	GPL
+License:	GPLv2
 Group:		Video
-BuildRequires:  dbus-glib-devel >= 0.73
+BuildRequires:  pkgconfig(dbus-glib-1) >= 0.73
 BuildRequires:	libunicapgtk-devel >= 0.2.23
-BuildRequires:	libGConf2-devel >= 2.22.0
-BuildRequires:	libglade2-devel >= 2.6.2
+BuildRequires:	pkgconfig(gconf-2.0) >= 2.22.0
+BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	gtk+2 >= 2.12.10
 BuildRequires:	intltool GConf2
 Requires(preun): GConf2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Patch0:		ucview-0.33-gmodule.patch
 
 %description
 UCView is a video capture and display program based on the unicap video imaging
@@ -21,14 +22,15 @@ library.
 
 %prep
 %setup -q
+%patch0 -p1 -b .gmodule
 
 %build
 %configure2_5x --disable-schemas-install
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
+desktop-file-install --vendor "" --dir %{buildroot}%{_datadir}/applications %{SOURCE1}
 %find_lang %{name}
 
 rm -fr %buildroot%_includedir %buildroot%_libdir/pkgconfig
@@ -36,11 +38,7 @@ rm -fr %buildroot%_includedir %buildroot%_libdir/pkgconfig
 %preun
 %preun_uninstall_gconf_schemas ucview
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %{_sysconfdir}/gconf/schemas/ucview.schemas
 %{_datadir}/applications/ucview.desktop
 %{_datadir}/icons/hicolor/*
