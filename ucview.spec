@@ -4,7 +4,7 @@ Release:	3
 Summary:	A video capture and display program
 Source0:	http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-Url:		http://www.unicap-imaging.org/ucview.htm
+Url:		https://www.unicap-imaging.org/ucview.htm
 License:	GPLv2
 Group:		Video
 BuildRequires:  pkgconfig(dbus-glib-1) >= 0.73
