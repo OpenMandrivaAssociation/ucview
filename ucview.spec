@@ -7,6 +7,11 @@ Source1:	%{name}.desktop
 Url:		https://www.unicap-imaging.org/ucview.htm
 License:	GPLv2
 Group:		Video
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  pkgconfig(dbus-glib-1) >= 0.73
 BuildRequires:	libunicapgtk-devel >= 0.2.23
 BuildRequires:	pkgconfig(gconf-2.0) >= 2.22.0
